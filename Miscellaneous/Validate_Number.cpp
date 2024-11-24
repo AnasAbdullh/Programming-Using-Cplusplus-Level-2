@@ -26,5 +26,36 @@ int main(int argc, char const *argv[])
 
     cout << "Your Number is:" << ReadNumbers();
 
+    string input;
+    cout << "Please enter your name: ";
+
+    // التحقق من صحة المدخلات
+    while (true)
+    {
+        getline(cin, input); // قراءة النص بالكامل
+        bool isNumber = false;
+
+        // التحقق إذا كان النص يتكون من أرقام فقط
+        for (char c : input)
+        {
+            if (isdigit(c))
+            {
+                isNumber = true;
+                break;
+            }
+        }
+
+        if (isNumber)
+        { // إذا كان النص يحتوي على أرقام
+            cout << "Invalid input! Please enter a valid name (no numbers): ";
+        }
+        else
+        {
+            break; // إذا كانت المدخلات صحيحة
+        }
+    }
+
+    cout << "You entered: " << input << endl;
+
     return 0;
 }
